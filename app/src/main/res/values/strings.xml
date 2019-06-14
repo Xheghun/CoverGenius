@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Cover Genius</string>
+    <string name="welcome_scrn">welcome_scrn</string>
+    <string name="welcome">Welcome</string>
+    <string name="click_here_to_register">Click Here to Register</string>
+    <string name="explore">Explore</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="by_continuing">By continuing I agree to covergenius</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="register_here">Register Here</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_msg">We\'ll Send reset instruction to this \n  email if it is attached to an account</string>
+    <string name="_continue">Continue</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="things">Things You Can Insure</string>
+    <string name="travel">Travel</string>
+    <string name="demo_conent"> start your speech by greeting\nthe audience, before giving an\noverview of the event</string>
+    <string name="know_more"><![CDATA[Know More >>]]></string>
+    <string name="things_you_can_insure">THINGS YOU CAN INSURE</string>
+    <string name="travell_insurance">Travell Insurance Just got Better with Covergenius</string>
+    <string name="more_than_1000_000">More than 1000,000 preperty casualty insurance professionals subscribe too...</string>
+</resources>
