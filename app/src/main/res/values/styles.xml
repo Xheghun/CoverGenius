@@ -12,4 +12,16 @@
         <item name="android:windowBackground">@drawable/welcome_screen</item>
     </style>
 
+
+    <style name="Widget.UIDemo.ToggleButton" parent="android:Widget">
+        <item name="android:background">@drawable/ic_toggle_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+    </style>
+
+    <style name="toggleButton" parent="android:Theme.Black">
+        <item name="android:buttonStyleToggle">@style/Widget.UIDemo.ToggleButton</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+    </style>
+
 </resources>

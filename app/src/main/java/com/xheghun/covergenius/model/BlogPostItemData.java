@@ -1,6 +1,6 @@
 package com.xheghun.covergenius.model;
 
-public class UpdateItemData {
+public class BlogPostItemData {
     private String title;
     private String text;
     private String date;

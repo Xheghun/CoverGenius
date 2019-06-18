@@ -23,6 +23,11 @@
     <string name="demo_conent"> start your speech by greeting\nthe audience, before giving an\noverview of the event</string>
     <string name="know_more"><![CDATA[Know More >>]]></string>
     <string name="things_you_can_insure">THINGS YOU CAN INSURE</string>
-    <string name="travell_insurance">Travell Insurance Just got Better with Covergenius</string>
+    <string name="travel_insurance">Travell Insurance Just got Better with Covergenius</string>
     <string name="more_than_1000_000">More than 1000,000 preperty casualty insurance professionals subscribe too...</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile">profile</string>
+    <string name="notification">notification</string>
+    <string name="home">home</string>
 </resources>

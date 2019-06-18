@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="220dp"
-    android:layout_margin="5dp">
+    android:layout_width="200dp"
+    android:layout_height="150dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="4dp">
 <LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <LinearLayout
         android:layout_margin="10dp"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="4"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/update_title"
+            android:id="@+id/post_name"
+            android:text="@string/travel_insurance"
             android:textColor="#071828"
             android:fontFamily="@font/lato_bold"
-            android:text="@string/travell_insurance"
+            android:textSize="14sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
-            android:id="@+id/update_summary"
+            android:id="@+id/post_content"
+            android:textSize="12sp"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +41,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/update_date"
+                android:id="@+id/post_date"
+                android:textSize="12sp"
                 android:textColor="#57595c"
                 android:layout_margin="2dp"
                 android:layout_width="0dp"
@@ -42,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:text="May 15 2019"/>
             <TextView
-                android:id="@+id/update_author"
+                android:id="@+id/post_author"
+                android:textSize="12sp"
                 android:textColor="#57595c"
                 android:layout_margin="2dp"
                 android:layout_width="0dp"
@@ -51,44 +60,46 @@
                 android:text="John Doe"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
           <com.google.android.material.floatingactionbutton.FloatingActionButton
-              android:padding="0dp"
-              android:id="@+id/share_update"
+              android:id="@+id/share_post_fab"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginEnd="6dp"
-              app:elevation="8dp"
+              android:layout_marginBottom="4dp"
+              app:elevation="4dp"
               android:src="@drawable/ic_share"
+              app:fabSize="mini"
               app:backgroundTint="#fff"/>
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/like_update"
+                android:id="@+id/like_post_fab"
+                android:layout_marginBottom="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite_outlined"
                 android:layout_marginStart="6dp"
-                app:elevation="8dp"
-                android:src="@drawable/ic_favorite_black_24dp"
+                app:elevation="4dp"
+                app:fabSize="mini"
                 app:backgroundTint="#fff"/>
         </LinearLayout>
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
         <ImageView
-            android:id="@+id/update_img"
+            android:id="@+id/post_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:layout_margin="10dp"
-            android:src="@drawable/profile_img"/>
-    </androidx.cardview.widget.CardView>
+            android:src="@drawable/profile_img" />
+    </LinearLayout>
 </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
