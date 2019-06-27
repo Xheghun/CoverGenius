@@ -1,10 +1,9 @@
 package com.xheghun.covergenius;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.login_btn)
     void HandleLogin() {
-        startActivity(new Intent(this,HomePageActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @OnClick(R.id.reset_pass_btn)

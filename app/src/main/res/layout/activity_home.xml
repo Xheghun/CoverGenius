@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlogActivity">
+    tools:context=".HomeActivity">
 
     <FrameLayout
-        android:id="@+id/blog_container"
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/blog_bottom_nav"
+        android:id="@+id/main_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemIconTint="@drawable/blog_bottom_nav_icon_tint"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@drawable/main_bottom_nav_icon_tint"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/blog_bottom_nav" />
+        app:menu="@menu/main_bottom_nav_menu" />
+
 </RelativeLayout>

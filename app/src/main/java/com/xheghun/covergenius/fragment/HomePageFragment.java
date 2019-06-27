@@ -1,15 +1,22 @@
-package com.xheghun.covergenius;
+package com.xheghun.covergenius.fragment;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.xheghun.covergenius.BlogActivity;
+import com.xheghun.covergenius.BuyPolicyActivity;
+import com.xheghun.covergenius.R;
 import com.xheghun.covergenius.adapter.BlogPostRecyclerAdapter;
 import com.xheghun.covergenius.adapter.InsuranceItemAdapter;
 import com.xheghun.covergenius.adapter.MainGridItemsAdapter;
@@ -24,10 +31,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class HomePageActivity extends AppCompatActivity {
-
-    Thread thread;
+public class HomePageFragment extends Fragment {
 
     @BindView(R.id.grid_items_rc)
     RecyclerView recyclerView;
@@ -37,33 +43,31 @@ public class HomePageActivity extends AppCompatActivity {
 
     @BindView(R.id.main_img_slider)
     DiscreteScrollView mDiscreteScrollView;
-    List<SliderData> sliderDataList;
+    private List<SliderData> sliderDataList;
 
-    List<InsuranceType> gridList;
-    GridLayoutManager layoutManager;
+    private List<InsuranceType> gridList;
 
-    List<InsuranceType> listPolicies;
-    LinearLayoutManager linearLayoutManager;
+    private List<InsuranceType> listPolicies;
 
 
     @BindView(R.id.updates_rc)
     RecyclerView updateRecyclerView;
 
-    List<BlogPostItemData> blogPostItemDataList;
+    private List<BlogPostItemData> blogPostItemDataList;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-        ButterKnife.bind(this);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_home_page, container, false);
+        ButterKnife.bind(this, view);
         listPolicies = new ArrayList<>();
         blogPostItemDataList = new ArrayList<>();
         sliderDataList = new ArrayList<>();
         gridList = new ArrayList<>();
 
+
         //loadItems recyclerItems
-        thread = new Thread() {
+        Thread thread = new Thread() {
             @Override
             public void run() {
                 imgSlider();
@@ -77,31 +81,39 @@ public class HomePageActivity extends AppCompatActivity {
 
         //load recycler Items
         loadItems();
+
+        return view;
     }
 
+
+    @OnClick(R.id.profile_img)
+    void gotoBuy_P() {
+        startActivity(new Intent(getContext(), BuyPolicyActivity.class));
+    }
+
+
     private void loadItems() {
-        mDiscreteScrollView.setAdapter(new SliderAdapter(this, sliderDataList));
+        mDiscreteScrollView.setAdapter(new SliderAdapter(getContext(), sliderDataList));
         mDiscreteScrollView.setOffscreenItems(2);
 
 
+        GridLayoutManager layoutManager;
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-            layoutManager = new GridLayoutManager(this, 2);
+            layoutManager = new GridLayoutManager(getContext(), 2);
         else
-            layoutManager = new GridLayoutManager(this, 4);
-        recyclerView.setAdapter(new MainGridItemsAdapter(this, gridList));
+            layoutManager = new GridLayoutManager(getContext(), 4);
+        recyclerView.setAdapter(new MainGridItemsAdapter(getContext(), gridList));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-
-        linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         updateRecyclerView.setLayoutManager(linearLayoutManager);
-        updateRecyclerView.setAdapter(new BlogPostRecyclerAdapter(this, blogPostItemDataList));
+        updateRecyclerView.setAdapter(new BlogPostRecyclerAdapter(getContext(), blogPostItemDataList));
 
-
-        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-        policyRecyclerView.setAdapter(new InsuranceItemAdapter(this, listPolicies, 2));
+        policyRecyclerView.setAdapter(new InsuranceItemAdapter(getContext(), listPolicies, 2));
         policyRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
@@ -147,7 +159,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private void imgSlider() {
         String title = "Travel";
-        String text = getString(R.string.demo_conent);
+        String text = getActivity().getResources().getString(R.string.demo_conent);
         String btn_txt = getString(R.string.know_more);
         int imgRes = R.drawable._demo_img;
 
@@ -161,8 +173,6 @@ public class HomePageActivity extends AppCompatActivity {
 
             sliderDataList.add(sliderData);
         }
-
-
         //mDiscreteScrollView.setOverScrollEnabled(true);
     }
 
@@ -180,7 +190,8 @@ public class HomePageActivity extends AppCompatActivity {
 
     }
 
-    public void toast(View view) {
-        startActivity(new Intent(this, BlogActivity.class));
+    @OnClick(R.id.blog_fab)
+    public void toast() {
+        startActivity(new Intent(getContext(), BlogActivity.class));
     }
 }

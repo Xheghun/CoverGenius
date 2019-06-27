@@ -11,8 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".BlogActivity"></activity>
-        <activity android:name=".HomePageActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".UnknownActivity" />
+        <activity android:name=".adapter.EditProfileActivity" />
+        <activity android:name=".BlogActivity" />
         <activity android:name=".BuyPolicyActivity" />
         <activity
             android:name=".ResetPasswordActivity"

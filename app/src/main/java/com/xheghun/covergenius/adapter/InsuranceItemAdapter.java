@@ -1,7 +1,6 @@
 package com.xheghun.covergenius.adapter;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +59,7 @@ public class InsuranceItemAdapter extends RecyclerView.Adapter<InsuranceItemAdap
         ImageView imageView;
         TextView textView;
 
-        public InsuranceViewHolder(@NonNull View itemView) {
+        InsuranceViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.insurance_icon);
             textView = itemView.findViewById(R.id.insurance_name);

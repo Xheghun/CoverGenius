@@ -54,7 +54,10 @@ public class BlogPostRecyclerAdapter extends RecyclerView.Adapter<BlogPostRecycl
         holder.text.setText(itemData.getText());
         holder.date.setText(itemData.getDate());
         holder.author.setText(itemData.getAuthor());
-        Glide.with(mContext).load(itemData.getImg()).into(holder.imageView);
+
+        Glide.with(mContext).load(itemData.getImg())
+                .override(holder.imageView.getWidth(), holder.imageView.getHeight())
+                .into(holder.imageView);
 
         holder.fav.setOnClickListener(view1 -> {
             if (flag) {

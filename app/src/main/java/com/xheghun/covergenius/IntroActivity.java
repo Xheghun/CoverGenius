@@ -1,35 +1,39 @@
 package com.xheghun.covergenius;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+import com.xheghun.covergenius.adapter.IntroImageSliderAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class IntroActivity extends AppCompatActivity {
-    @BindView(R.id.intro_view_pager)
-    ViewPager viewPager;
 
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
+    @BindView(R.id.intro_img_slider)
+    SliderView sliderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
         ButterKnife.bind(this);
         getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.explore_bg));
 
+        sliderView.setSliderAdapter(new IntroImageSliderAdapter(this));
+        sliderView.startAutoCycle();
+        sliderView.setIndicatorAnimation(IndicatorAnimations.WORM);
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderView.setScrollTimeInSec(4);
+        sliderView.setIndicatorSelectedColor(getResources().getColor(R.color.colorPrimary));
     }
 
     @OnClick(R.id.login_btn)
@@ -44,6 +48,6 @@ public class IntroActivity extends AppCompatActivity {
 
     @OnClick(R.id.explore_btn)
     void gotoPolicy() {
-        startActivity(new Intent(this,BuyPolicyActivity.class));
+        startActivity(new Intent(this, UnknownActivity.class));
     }
 }
