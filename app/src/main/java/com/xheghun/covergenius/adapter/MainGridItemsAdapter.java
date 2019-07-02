@@ -1,11 +1,12 @@
 package com.xheghun.covergenius.adapter;
 
 import android.content.Context;
-import android.text.Layout;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,10 @@ public class MainGridItemsAdapter extends RecyclerView.Adapter<MainGridItemsAdap
         InsuranceType items = listGridItems.get(position);
         holder.imageView.setImageResource(items.getIconRes());
         holder.textView.setText(items.getTitle());
+        holder.linearLayout.setOnClickListener(view -> {
+            if (items.getActivity() != null)
+                mContext.startActivity(new Intent(mContext, items.getActivity().getClass()));
+        });
     }
 
     @Override
@@ -48,10 +53,12 @@ public class MainGridItemsAdapter extends RecyclerView.Adapter<MainGridItemsAdap
     class MainGridViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
+        LinearLayout linearLayout;
         public MainGridViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.main_grid_icon);
             textView = itemView.findViewById(R.id.main_grid_title);
+            linearLayout = itemView.findViewById(R.id.root);
         }
     }
 }

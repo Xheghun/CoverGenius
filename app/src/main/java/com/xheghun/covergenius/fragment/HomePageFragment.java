@@ -9,14 +9,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xheghun.covergenius.BlogActivity;
-import com.xheghun.covergenius.BuyPolicyActivity;
 import com.xheghun.covergenius.R;
+import com.xheghun.covergenius.UnknownActivity;
 import com.xheghun.covergenius.adapter.BlogPostRecyclerAdapter;
 import com.xheghun.covergenius.adapter.InsuranceItemAdapter;
 import com.xheghun.covergenius.adapter.MainGridItemsAdapter;
@@ -65,13 +66,13 @@ public class HomePageFragment extends Fragment {
         sliderDataList = new ArrayList<>();
         gridList = new ArrayList<>();
 
+        gridRecycler();
 
         //loadItems recyclerItems
         Thread thread = new Thread() {
             @Override
             public void run() {
                 imgSlider();
-                gridRecycler();
                 policies_rc();
                 updates();
             }
@@ -88,7 +89,7 @@ public class HomePageFragment extends Fragment {
 
     @OnClick(R.id.profile_img)
     void gotoBuy_P() {
-        startActivity(new Intent(getContext(), BuyPolicyActivity.class));
+        startActivity(new Intent(getContext(), ProfileFragment.class));
     }
 
 
@@ -102,6 +103,7 @@ public class HomePageFragment extends Fragment {
             layoutManager = new GridLayoutManager(getContext(), 2);
         else
             layoutManager = new GridLayoutManager(getContext(), 4);
+
         recyclerView.setAdapter(new MainGridItemsAdapter(getContext(), gridList));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -156,7 +158,6 @@ public class HomePageFragment extends Fragment {
 
     }
 
-
     private void imgSlider() {
         String title = "Travel";
         String text = getActivity().getResources().getString(R.string.demo_conent);
@@ -180,10 +181,13 @@ public class HomePageFragment extends Fragment {
         String[] title = {"Buy Policies", "Make Claims", "Inspections", "Locate Vendor"};
         int[] icons = {R.drawable.ic_policy, R.drawable.ic_claim, R.drawable.ic_document, R.drawable.ic_route};
 
+        AppCompatActivity[] activities = {new UnknownActivity(), null, null, null};
+
         for (int i = 0; i < title.length; i++) {
             InsuranceType gridItemData = new InsuranceType();
             gridItemData.setIconRes(icons[i]);
             gridItemData.setTitle(title[i]);
+            gridItemData.setActivity(activities[i]);
             gridList.add(gridItemData);
         }
 

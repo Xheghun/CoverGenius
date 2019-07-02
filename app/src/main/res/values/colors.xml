@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#175E5C</color>
     <color name="colorAccent">#FF5C6F</color>
     <color name="colorNBlue">#04273D</color>
+    <drawable name="colorTrans">#00000000</drawable>
 </resources>

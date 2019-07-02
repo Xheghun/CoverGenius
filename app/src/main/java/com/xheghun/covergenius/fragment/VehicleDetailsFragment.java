@@ -10,9 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.xheghun.covergenius.R;
+import com.xheghun.covergenius._interface.NavigationHost;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,13 +40,18 @@ public class VehicleDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().setTitle(R.string.address);
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_enter_vehicle_details, container, false);
         ButterKnife.bind(this, view);
-
+        getActivity().setTitle(R.string._continue);
         return view;
     }
 
@@ -76,12 +83,23 @@ public class VehicleDetailsFragment extends Fragment {
         //radio list
         String[] list = getResources().getStringArray(R.array.lorem_ipsum);
         int checkedItem = 0;
-        builder.setSingleChoiceItems(list, checkedItem, (dialogInterface, i) -> textView.setText(list[i] + i));
+        builder.setSingleChoiceItems(list, checkedItem, (dialogInterface, i) -> textView.setText(list[i] + " " + i));
 
         builder.setPositiveButton("Ok", (dialogInterface, i) -> dialogInterface.dismiss());
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    @OnClick(R.id.next_step_btn)
+    void gotoNext() {
+        ((NavigationHost) getActivity()).navigateTo(new PolicyInformationFragment(), true);
+    }
+
+    @OnClick(R.id.prev_step_btn)
+    void gotoPrev() {
+        getActivity().onBackPressed();
+    }
+
 
 }

@@ -46,8 +46,4 @@ public class IntroActivity extends AppCompatActivity {
         startActivity(new Intent(this,RegisterActivity.class));
     }
 
-    @OnClick(R.id.explore_btn)
-    void gotoPolicy() {
-        startActivity(new Intent(this, UnknownActivity.class));
-    }
 }

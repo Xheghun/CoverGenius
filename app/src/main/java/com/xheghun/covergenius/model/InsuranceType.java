@@ -1,5 +1,7 @@
 package com.xheghun.covergenius.model;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class InsuranceType {
     private int iconRes;
 
@@ -12,6 +14,16 @@ public class InsuranceType {
     }
 
     private String title;
+
+    private AppCompatActivity activity;
+
+    public AppCompatActivity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(AppCompatActivity activity) {
+        this.activity = activity;
+    }
 
 
     public int getIconRes() {

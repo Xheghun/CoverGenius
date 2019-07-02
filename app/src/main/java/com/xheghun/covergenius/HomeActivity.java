@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xheghun.covergenius.fragment.HomePageFragment;
+import com.xheghun.covergenius.fragment.ProfileFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,9 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.notification:
                     break;
                 case R.id.profile:
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_container, new ProfileFragment())
+                            .commit();
                     break;
             }
             return true;
