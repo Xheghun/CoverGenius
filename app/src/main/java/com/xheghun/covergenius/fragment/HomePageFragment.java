@@ -162,7 +162,7 @@ public class HomePageFragment extends Fragment {
         String title = "Travel";
         String text = getActivity().getResources().getString(R.string.demo_conent);
         String btn_txt = getString(R.string.know_more);
-        int imgRes = R.drawable._demo_img;
+        int imgRes = R.drawable.profile_img;
 
 
         for (int i = 0; i < 20; i++) {
