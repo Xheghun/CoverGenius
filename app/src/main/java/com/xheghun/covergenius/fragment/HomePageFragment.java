@@ -36,8 +36,6 @@ import butterknife.OnClick;
 
 public class HomePageFragment extends Fragment {
 
-    @BindView(R.id.grid_items_rc)
-    RecyclerView recyclerView;
 
     @BindView(R.id.policies_rc)
     RecyclerView policyRecyclerView;
@@ -46,15 +44,9 @@ public class HomePageFragment extends Fragment {
     DiscreteScrollView mDiscreteScrollView;
     private List<SliderData> sliderDataList;
 
-    private List<InsuranceType> gridList;
-
     private List<InsuranceType> listPolicies;
 
 
-    @BindView(R.id.updates_rc)
-    RecyclerView updateRecyclerView;
-
-    private List<BlogPostItemData> blogPostItemDataList;
 
     @Nullable
     @Override
@@ -62,11 +54,7 @@ public class HomePageFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_home_page, container, false);
         ButterKnife.bind(this, view);
         listPolicies = new ArrayList<>();
-        blogPostItemDataList = new ArrayList<>();
         sliderDataList = new ArrayList<>();
-        gridList = new ArrayList<>();
-
-        gridRecycler();
 
         //loadItems recyclerItems
         Thread thread = new Thread() {
@@ -74,7 +62,6 @@ public class HomePageFragment extends Fragment {
             public void run() {
                 imgSlider();
                 policies_rc();
-                updates();
             }
         };
 
@@ -97,26 +84,9 @@ public class HomePageFragment extends Fragment {
         mDiscreteScrollView.setAdapter(new SliderAdapter(getContext(), sliderDataList));
         mDiscreteScrollView.setOffscreenItems(2);
 
-
-        GridLayoutManager layoutManager;
-        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-            layoutManager = new GridLayoutManager(getContext(), 2);
-        else
-            layoutManager = new GridLayoutManager(getContext(), 4);
-
-        recyclerView.setAdapter(new MainGridItemsAdapter(getContext(), gridList));
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-        updateRecyclerView.setLayoutManager(linearLayoutManager);
-        updateRecyclerView.setAdapter(new BlogPostRecyclerAdapter(getContext(), blogPostItemDataList));
-
-        linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4);
         policyRecyclerView.setAdapter(new InsuranceItemAdapter(getContext(), listPolicies, 2));
-        policyRecyclerView.setLayoutManager(linearLayoutManager);
+        policyRecyclerView.setLayoutManager(gridLayoutManager);
     }
 
 
@@ -132,27 +102,6 @@ public class HomePageFragment extends Fragment {
             policies.setTitle(title[i]);
             policies.setIconRes(iconsRes[i]);
             listPolicies.add(policies);
-        }
-
-
-    }
-
-    private void updates() {
-        String title = "Travel Insurance just got Better with Covergenius";
-        String text = "More than 100,000 property casualty,insurance professionals subscribe too..";
-        String date = "May 15 2019";
-        String author = "John Doe";
-        int imgRes = R.drawable.profile_img;
-
-
-        for (int i = 0; i < 9; i++) {
-            BlogPostItemData blogPostItemData = new BlogPostItemData();
-            blogPostItemData.setTitle(title);
-            blogPostItemData.setText(text);
-            blogPostItemData.setDate(date);
-            blogPostItemData.setAuthor(author);
-            blogPostItemData.setImg(imgRes);
-            blogPostItemDataList.add(blogPostItemData);
         }
 
 
@@ -175,23 +124,6 @@ public class HomePageFragment extends Fragment {
             sliderDataList.add(sliderData);
         }
         //mDiscreteScrollView.setOverScrollEnabled(true);
-    }
-
-    private void gridRecycler() {
-        String[] title = {"Buy Policies", "Make Claims", "Inspections", "Locate Vendor"};
-        int[] icons = {R.drawable.ic_policy, R.drawable.ic_claim, R.drawable.ic_document, R.drawable.ic_route};
-
-        AppCompatActivity[] activities = {new UnknownActivity(), null, null, null};
-
-        for (int i = 0; i < title.length; i++) {
-            InsuranceType gridItemData = new InsuranceType();
-            gridItemData.setIconRes(icons[i]);
-            gridItemData.setTitle(title[i]);
-            gridItemData.setActivity(activities[i]);
-            gridList.add(gridItemData);
-        }
-
-
     }
 
     @OnClick(R.id.blog_fab)
