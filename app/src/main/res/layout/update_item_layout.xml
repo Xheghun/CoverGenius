@@ -9,91 +9,11 @@
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="6dp"
     app:cardElevation="4dp">
-<LinearLayout
+<RelativeLayout
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:baselineAligned="false"
     android:orientation="horizontal">
-    <LinearLayout
-        android:layout_margin="10dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/post_name"
-            android:text="@string/travel_insurance"
-            android:textColor="#071828"
-            android:fontFamily="@font/lato_bold"
-            android:textSize="14sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/post_content"
-            android:textSize="12sp"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/more_than_1000_000"/>
-        <LinearLayout
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/post_date"
-                android:textSize="12sp"
-                android:textColor="#57595c"
-                android:layout_margin="2dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="May 15 2019"/>
-            <TextView
-                android:id="@+id/post_author"
-                android:textSize="12sp"
-                android:textColor="#57595c"
-                android:layout_margin="2dp"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="John Doe"/>
-        </LinearLayout>
-        <LinearLayout
-            android:visibility="invisible"
-            android:layout_marginBottom="6dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-          <com.google.android.material.floatingactionbutton.FloatingActionButton
-              android:id="@+id/share_post_fab"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginEnd="6dp"
-              android:layout_marginBottom="4dp"
-              app:elevation="4dp"
-              android:src="@drawable/ic_share"
-              app:fabSize="mini"
-              app:backgroundTint="#fff"/>
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/like_post_fab"
-                android:layout_marginBottom="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_favorite_outlined"
-                android:layout_marginStart="6dp"
-                app:elevation="4dp"
-                app:fabSize="mini"
-                app:backgroundTint="#fff"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-
         <ImageView
             android:id="@+id/post_thumbnail"
             android:layout_width="match_parent"
@@ -102,6 +22,15 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_img" />
-    </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:background="@drawable/rect_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem Ipsum"
+        android:textSize="18sp"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"/>
+</RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
