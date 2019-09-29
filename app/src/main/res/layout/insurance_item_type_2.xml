@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="100dp"
+<com.google.android.material.card.MaterialCardView
+    app:cardBackgroundColor="@android:color/transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="4dp"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
@@ -14,16 +23,6 @@
         android:layout_height="40dp"
         android:scaleType="center"
         android:src="@drawable/ic_travel" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="6dp"
-        android:background="@color/colorAccent" />
-
     <TextView
         android:id="@+id/insurance_name"
         android:layout_width="match_parent"
@@ -31,5 +30,6 @@
         android:gravity="center_horizontal"
         android:text="Travel"
         android:textColor="@color/colorPrimary"
-        android:textSize="10sp" />
+        android:textSize="12sp" />
 </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

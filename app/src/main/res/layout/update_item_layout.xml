@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="150dp"
+    android:layout_height="180dp"
     android:layout_marginStart="5dp"
     android:layout_marginTop="10dp"
     android:layout_marginEnd="5dp"
@@ -11,7 +11,7 @@
     app:cardElevation="4dp">
 <RelativeLayout
     android:layout_width="350dp"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="horizontal">
         <ImageView
@@ -23,14 +23,34 @@
             android:scaleType="centerCrop"
             android:src="@drawable/profile_img" />
     <TextView
-        android:background="@drawable/rect_overlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lorem Ipsum"
+        android:id="@+id/slider_title"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
         android:textSize="18sp"
         android:fontFamily="@font/lato_bold"
         android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:padding="8dp"/>
+        android:padding="4dp"/>
+    <TextView
+        android:padding="4dp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slider_title"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="lorem ipsum lore ijdjd ddjkdjkd"
+        android:textColor="@android:color/white"
+        android:id="@+id/slider_text"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/slider_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:cornerRadius="25dp"
+        android:text="know more"
+        android:textAllCaps="false"
+        android:layout_below="@id/slider_text"
+        android:layout_marginStart="12dp"/>
 </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

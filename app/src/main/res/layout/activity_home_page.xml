@@ -21,15 +21,6 @@
             android:gravity="bottom"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_img"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="6dp"
-                android:src="@drawable/profile_img"
-                app:civ_border_color="@color/colorAccent"
-                app:civ_border_width="2dp" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -39,8 +30,16 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lato_bold"
                 android:padding="4dp"
-                android:text="Welcome Segun"
+                android:text="Welcome David"
                 android:textSize="18sp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/profile_img"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -76,108 +75,27 @@
                     android:layout_below="@id/main_img_slider"
                     android:layout_margin="12dp" />-->
 
-                <RelativeLayout
-                    android:id="@+id/grid_items_rc"
-                    android:layout_below="@id/main_img_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginEnd="28dp"
-                    android:padding="12dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_above="@id/horizontal_divider"
-                        android:layout_marginEnd="38dp"
-                        android:layout_marginBottom="0dp"
-                        android:layout_toStartOf="@id/vertical_divider"
-                        android:drawableTop="@drawable/ic_policy"
-                        android:text="Buy Policies" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_above="@id/horizontal_divider"
-                        android:layout_marginStart="37dp"
-                        android:layout_marginEnd="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_toEndOf="@id/vertical_divider"
-                        android:drawableTop="@drawable/ic_policy"
-                        android:text="Inspection" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_below="@id/horizontal_divider"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="11dp"
-                        android:layout_marginEnd="40dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_toStartOf="@id/vertical_divider"
-                        android:drawableTop="@drawable/ic_claim"
-                        android:text="Claims" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_below="@id/horizontal_divider"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginEnd="6dp"
-                        android:layout_marginBottom="6dp"
-                        android:layout_toEndOf="@id/vertical_divider"
-                        android:drawableTop="@drawable/ic_route"
-                        android:text="Locate Vendor" />
-
-                    <LinearLayout
-                        android:id="@+id/vertical_divider"
-                        android:background="@color/colorAccent"
-                        android:layout_width="2dp"
-                        android:orientation="vertical"
-                        android:layout_centerHorizontal="true"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginBottom="6dp"/>
-                    <LinearLayout
-                            android:id="@+id/horizontal_divider"
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginEnd="12dp"
-                            android:background="@color/colorAccent"
-                            android:orientation="vertical" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/things_txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/grid_items_rc"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="@drawable/curved_green_rect"
+                    android:id="@+id/policies_rc"
                     android:layout_marginStart="18dp"
                     android:layout_marginEnd="18dp"
-                    android:background="@drawable/curved_rect_gradient"
-                    android:elevation="6dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:padding="4dp"
-                    android:gravity="center"
-                    android:text="@string/things_you_can_insure"
-                    android:textColor="@android:color/white"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/policies_rc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/things_txt"
+                    android:layout_below="@id/main_img_slider"
                     android:layout_marginBottom="12dp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/policies_rc"
+                    android:src="@drawable/details_lightbox"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="12dp"/>
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/blog_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

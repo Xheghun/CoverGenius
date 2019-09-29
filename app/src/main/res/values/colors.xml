@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF5C6F</color>
     <color name="colorNBlue">#04273D</color>
     <drawable name="colorTrans">#00000000</drawable>
+    <color name="colorPrimaryTrans">#904fbfa3</color>
 </resources>
